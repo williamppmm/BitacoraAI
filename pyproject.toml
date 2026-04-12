@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "workspace-memory-rag"
+version = "0.1.0"
+description = "Local workspace memory and RAG assistant for technical work sessions."
+authors = ["William"]
+readme = "README.md"
+packages = [{ include = "workspace_memory", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pydantic = "^2.11.3"
+pydantic-settings = "^2.8.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+pytest-cov = "^6.1.1"
+
+[tool.poetry.scripts]
+wme = "workspace_memory.cli:app"
+
+[build-system]
+requires = ["poetry-core>=1.9.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"

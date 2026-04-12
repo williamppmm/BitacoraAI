@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+
+# Tooling
+poetry.toml
+
+# Local environment
+.env
+
+# Workspace memory storage
+data/
+*.sqlite
+*.db
+
+# Editors and OS files
+.idea/
+.vscode/
+Thumbs.db
+Desktop.ini
