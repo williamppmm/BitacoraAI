@@ -23,6 +23,25 @@ class Settings(BaseSettings):
     log_level: str = Field(default="INFO")
     llm_provider: LLMProviderName = Field(default="anthropic")
     capture_roots: list[Path] = Field(default_factory=lambda: [Path.cwd()])
+    event_log_path: Path = Field(default=Path("./data/events.jsonl"))
+    daemon_poll_seconds: float = Field(default=2.0, ge=0.2, le=60.0)
+    clipboard_poll_seconds: float = Field(default=2.0, ge=0.2, le=60.0)
+    terminal_history_max_lines: int = Field(default=200, ge=1, le=5000)
+    filesystem_extensions: list[str] = Field(
+        default_factory=lambda: [
+            ".py",
+            ".ts",
+            ".tsx",
+            ".js",
+            ".jsx",
+            ".json",
+            ".md",
+            ".txt",
+            ".yaml",
+            ".yml",
+            ".toml",
+        ]
+    )
     excluded_dirs: list[str] = Field(
         default_factory=lambda: [
             ".git",
